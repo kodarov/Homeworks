@@ -1,6 +1,6 @@
 package pro.sky.java.course1.termpaper;
 
-public class Main {
+public class App {
     static Employee[] employee =new Employee[10];
     public static void main(String[] args) {
         employee[0] = new Employee("Кодаров","Салават", "Саламатович",5,55000);
@@ -13,6 +13,6 @@ public class Main {
         employee[7] = new Employee("Никель","Дмитрий", "Степанович",3,85000);
         employee[8] = new Employee("Игнатьев","Константин", "Ювельевич",1,155000);
         employee[9] = new Employee("Андрианов","Дмитрий", "Иванович",3,80000);
-
+        CalcEmployee.printEmployeeBook(employee);
     }
 }
