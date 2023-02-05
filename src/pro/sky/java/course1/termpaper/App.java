@@ -14,5 +14,6 @@ public class App {
         employee[8] = new Employee("Игнатьев","Константин", "Ювельевич",1,155000);
         employee[9] = new Employee("Андрианов","Дмитрий", "Иванович",3,80000);
         CalcEmployee.printEmployeeBook(employee);
+        System.out.println(CalcEmployee.calcSalariesAll(employee));
     }
 }
