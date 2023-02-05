@@ -1,14 +1,16 @@
 package pro.sky.java.course1.termpaper;
 
+import java.util.Objects;
+
 public class Employee {
-    private final String firstName;
     private final String lastName;
+    private final String firstName;
     private final String surname;
     private static int count = 0;
     private double salary;
     private int dep;
 
-    public Employee(String firstName, String lastName, String surname, int dep, double salary) {
+    public Employee(String lastName, String firstName, String surname, int dep, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.surname = surname;
@@ -50,5 +52,25 @@ this(lastName,firstName,surname,0, 0L);
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(lastName, employee.lastName) && Objects.equals(firstName, employee.firstName) && Objects.equals(surname, employee.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lastName, firstName, surname);
+    }
+
+    @Override
+    public String toString() {
+        return "Работник: " + lastName + " " + firstName + " " + surname +
+                ", отдел: " + dep +
+                ", зарплата: " + salary + " руб";
     }
 }
