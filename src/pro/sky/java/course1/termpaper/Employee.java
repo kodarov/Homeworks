@@ -6,7 +6,8 @@ public class Employee {
     private final String lastName;
     private final String firstName;
     private final String surname;
-    private static int count = 0;
+    public static int count;
+    private final int id;
     private double salary;
     private int dep;
 
@@ -16,10 +17,11 @@ public class Employee {
         this.surname = surname;
         this.dep = dep;
         this.salary = salary;
-        count++;
+        this.id = ++count;
     }
+
     public Employee(String lastName, String firstName, String surname) {
-this(lastName,firstName,surname,0, 0L);
+        this(lastName, firstName, surname, 0, 0L);
     }
 
     public static int getCount() {
@@ -40,6 +42,10 @@ this(lastName,firstName,surname,0, 0L);
 
     public int getDep() {
         return dep;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setDep(int dep) {
@@ -69,8 +75,7 @@ this(lastName,firstName,surname,0, 0L);
 
     @Override
     public String toString() {
-        return "Работник: " + lastName + " " + firstName + " " + surname +
-                ", отдел: " + dep +
-                ", зарплата: " + salary + " руб";
+        return String.format("Работник id:%d: %s %s %s, отдел: %d, зарплата: %.2f руб."
+                , id, lastName, firstName, surname, dep, salary);
     }
 }
