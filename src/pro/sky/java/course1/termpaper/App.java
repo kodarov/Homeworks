@@ -15,8 +15,9 @@ public class App {
         employee[9] = new Employee("Андрианов","Дмитрий", "Иванович",3,80000);
         CalcEmployee.printEmployeeBook(employee);
         System.out.println(CalcEmployee.calculationSumSalaries(employee));
-        System.out.println(CalcEmployee.calculationMinSalaries(employee));
-        System.out.println(CalcEmployee.calculationMaxSalaries(employee));
-        System.out.println(CalcEmployee.calculationAverageSalaries(employee));
+        System.out.println(CalcEmployee.searchEmployeeMinSalary(employee));
+        System.out.println(CalcEmployee.searchEmployeeMaxSalary(employee));
+        System.out.printf("%.2f", CalcEmployee.calculationAverageSalaries(employee));
+        CalcEmployee.printEmployeeBookMini(employee);
     }
 }
