@@ -20,6 +20,6 @@ public class App {
         System.out.println(CalcEmployee.searchEmployeeMaxSalary(employee));
         System.out.printf("%.2f", CalcEmployee.calculationAverageSalaries(employee));
         CalcEmployee.printEmployeeBookMini(employee);
-        System.out.println("\n Всего сотрудников " + Employee.count);
+        System.out.println("\n Всего сотрудников " + CalcEmployee.getCount());
     }
 }

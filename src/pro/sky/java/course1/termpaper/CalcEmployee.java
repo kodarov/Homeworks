@@ -50,5 +50,9 @@ public class CalcEmployee {
             System.out.printf("\n %s %s %s ", i.getLastName(), i.getFirstName(), i.getSurname());
         }
     }
+    public static int getCount()
+    {
+        return Employee.getCount();
+    }
 
 }
