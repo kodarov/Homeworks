@@ -12,11 +12,25 @@ public class Employee {
     private int dep;
 
     public Employee(String lastName, String firstName, String surname, int dep, double salary) {
-        this.firstName = firstName;
+        if (lastName.trim().isEmpty() || firstName.trim().isEmpty() || surname.trim().isEmpty()) {
+            throw new RuntimeException("Отсутствуют полные данные Ф.И.О!");
+        }
+        firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+        lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+        surname = surname.substring(0, 1).toUpperCase() + surname.substring(1);
         this.lastName = lastName;
+        this.firstName = firstName;
         this.surname = surname;
-        this.dep = dep;
-        this.salary = salary;
+
+        if (salary < 0) {
+            this.salary = 0;
+        } else this.salary = salary;
+
+
+        if (dep > 0 && dep < 6) {
+            this.dep = dep;
+        } else this.dep = 0;
+
         this.id = ++count;
     }
 
@@ -40,6 +54,10 @@ public class Employee {
         return surname;
     }
 
+    public double getSalary() {
+        return salary;
+    }
+
     public int getDep() {
         return dep;
     }
@@ -48,16 +66,15 @@ public class Employee {
         return id;
     }
 
-    public void setDep(int dep) {
-        this.dep = dep;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
     public void setSalary(double salary) {
-        this.salary = salary;
+        if (salary < 0) {
+            this.salary = 0;
+        } else this.salary = salary;
+    }
+
+    public void setDep(int dep) {
+        if (dep > 0 && dep < 6) this.dep = dep;
+        else this.dep = 0;
     }
 
     @Override
