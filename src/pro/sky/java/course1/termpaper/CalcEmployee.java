@@ -84,5 +84,17 @@ public class CalcEmployee {
         }
         return employeeMaxSalary;
     }
+    public static double calculationAverageDepSalaries(Employee[] employees, int dep) {
+        int count = 0;
+        double sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getDep() == dep) {
+                sum += employees[i].getSalary();
+                count++;
+            }
+        }
+        return sum/count;
+    }
+
 
 }
