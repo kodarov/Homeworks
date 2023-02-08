@@ -55,4 +55,34 @@ public class CalcEmployee {
         return Employee.getCount();
     }
 
+    public static void indexationSalaries(Employee[] employees, double percent){
+        for (Employee i : employees) {
+            i.setSalary(i.getSalary()+i.getSalary()*percent/100);
+        }
+    }
+
+    public static Employee searchEmployeeDepMinSalary(Employee[] employees, int dep) {
+        Employee employeeMinSalary = null;
+        double min = Double.MAX_VALUE;
+        for (int i = 0; i < employees.length - 1; i++) {
+            if (employees[i].getDep() == dep && employees[i].getSalary() < min) {
+                min = employees[i].getSalary();
+                employeeMinSalary = employees[i];
+            }
+        }
+        return employeeMinSalary;
+    }
+
+    public static Employee searchEmployeeDepMaxSalary(Employee[] employees, int dep) {
+        Employee employeeMaxSalary = null;
+        double max = Double.MIN_VALUE;
+        for (int i = 0; i < employees.length - 1; i++) {
+            if (employees[i].getDep() == dep && employees[i].getSalary() > max) {
+                max = employees[i].getSalary();
+                employeeMaxSalary = employees[i];
+            }
+        }
+        return employeeMaxSalary;
+    }
+
 }
