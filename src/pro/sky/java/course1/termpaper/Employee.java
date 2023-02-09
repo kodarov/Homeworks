@@ -6,6 +6,8 @@ public class Employee {
     private final String lastName;
     private final String firstName;
     private final String surname;
+    private double salary;
+    private int dep;
 
 
 /*    public Employee(String lastName, String firstName, String surname, int dep, double salary) {
@@ -38,6 +40,8 @@ public class Employee {
         this.lastName = lastName;
         this.firstName = firstName;
         this.surname = surname;
+        this.salary = salary;
+        this.dep = dep;
     }
 
     public String getFirstName() {
@@ -50,6 +54,9 @@ public class Employee {
 
     public String getSurname() {
         return surname;
+    }
+    public double getSalary() {
+        return salary;
     }
 
     @Override

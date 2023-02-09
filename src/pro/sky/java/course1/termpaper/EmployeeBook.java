@@ -4,13 +4,9 @@ public class EmployeeBook {
     private static int count;
     private final int id;
     private Employee[] employee;
-    private double salary;
-    private int dep;
 
     public EmployeeBook(Employee[] employee, double salary, int dep) {
         this.employee = employee;
-        this.salary = salary;
-        this.dep = dep;
         this.id = ++count;
     }
 
@@ -26,9 +22,6 @@ public class EmployeeBook {
         return id;
     }
 
-    public double getSalary() {
-        return salary;
-    }
 
     public void setSalary(double salary) {
         if (salary < 0) {
