@@ -5,19 +5,32 @@ public class App {
 
     public static void main(String[] args) {
         EmployeeBook buhBook = new EmployeeBook(10);
-        Employee kodarovSS = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
-        buhBook.addEmployee(kodarovSS);
+        Employee worker1 = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
+        Employee worker2 = new Employee("Ермилов", "Александр", "Владимирович", 2, 65000);
+        Employee worker3 = new Employee("Измайлов", "Марат", "Дамирович", 2, 102000.33);
+        Employee worker4 = new Employee("Миронов", "Андрей", "Александрович", 1, 150000);
+        Employee worker5 = new Employee("Волков", "Валерий", "Валерьевич", 4, 75000);
+        Employee worker6 = new Employee("Роднов", "Дмитрий", "Алексеевич", 5, 50000.99);
+        Employee worker7 = new Employee("Касьянов", "Роман", "Романович", 2, 120000);
+        Employee worker8 = new Employee("Никель", "Дмитрий", "Степанович", 3, 85000);
+        Employee worker9 = new Employee("Игнатьев", "Константин", "Ювельевич", 1, 155000);
+        Employee worker10 = new Employee("Андрианов", "Дмитрий", "Иванович", 2, 80000);
+        buhBook.addEmployee(worker1);
+        buhBook.addEmployee(worker2);
+        buhBook.addEmployee(worker3);
+        buhBook.addEmployee(worker4);
+        buhBook.addEmployee(worker5);
+        buhBook.addEmployee(worker6);
+        buhBook.addEmployee(worker7);
+        buhBook.addEmployee(worker8);
+        buhBook.addEmployee(worker9);
+        buhBook.addEmployee(worker10);
+        buhBook.printEmployeeBook(buhBook.getEmployee());
+      //  for (int i = 1; i <= buhBook.getPage(); i++) {
+        //   buhBook.addEmployee((Employee));
+      //  }
+/*
 
-/*        employee[0] = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
-        employee[1] = new Employee("Ермилов", "Александр", "Владимирович", 2, 65000);
-        employee[2] = new Employee("Измайлов", "Марат", "Дамирович", 2, 102000.33);
-        employee[3] = new Employee("Миронов", "Андрей", "Александрович", 1, 150000);
-        employee[4] = new Employee("Волков", "Валерий", "Валерьевич", 4, 75000);
-        employee[5] = new Employee("Роднов", "Дмитрий", "Алексеевич", 5, 50000.99);
-        employee[6] = new Employee("Касьянов", "Роман", "Романович", 2, 120000);
-        employee[7] = new Employee("Никель", "Дмитрий", "Степанович", 3, 85000);
-        employee[8] = new Employee("Игнатьев", "Константин", "Ювельевич", 1, 155000);
-        employee[9] = new Employee("Андрианов", "Дмитрий", "Иванович", 2, 80000);
         CalcEmployee.printEmployeeBook(employee);
         System.out.println(CalcEmployee.calcSumSalaries(employee));
         System.out.println(CalcEmployee.searchEmployeeMinSalary(employee));
