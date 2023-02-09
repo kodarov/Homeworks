@@ -1,10 +1,10 @@
 package pro.sky.java.course1.termpaper;
 
 public class App {
-    static Employee[] employee = new Employee[10];
+
 
     public static void main(String[] args) {
-        employee[0] = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
+/*        employee[0] = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
         employee[1] = new Employee("Ермилов", "Александр", "Владимирович", 2, 65000);
         employee[2] = new Employee("Измайлов", "Марат", "Дамирович", 2, 102000.33);
         employee[3] = new Employee("Миронов", "Андрей", "Александрович", 1, 150000);
@@ -47,7 +47,7 @@ public class App {
         CalcEmployee.printEmpSalariesMore(employee,75_000);
         System.out.println();
         System.out.println("Меньше введенного числа");
-        CalcEmployee.printEmpSalariesLess(employee,100_000);
+        CalcEmployee.printEmpSalariesLess(employee,100_000);*/
 
 
     }
