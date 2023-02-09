@@ -15,20 +15,40 @@ public class App {
         employee[8] = new Employee("Игнатьев", "Константин", "Ювельевич", 1, 155000);
         employee[9] = new Employee("Андрианов", "Дмитрий", "Иванович", 2, 80000);
         CalcEmployee.printEmployeeBook(employee);
-        System.out.println(CalcEmployee.calculationSumSalaries(employee));
+        System.out.println(CalcEmployee.calcSumSalaries(employee));
         System.out.println(CalcEmployee.searchEmployeeMinSalary(employee));
         System.out.println(CalcEmployee.searchEmployeeMaxSalary(employee));
-        System.out.printf("%.2f", CalcEmployee.calculationAverageSalaries(employee));
+        System.out.printf("%.2f", CalcEmployee.calcAverageSalaries(employee));
         CalcEmployee.printEmployeeBookMini(employee);
         System.out.println("\n Всего сотрудников " + CalcEmployee.getCount());
         // повышенная сложность
         System.out.println("Индексация 10,5%");
         CalcEmployee.indexationSalaries(employee,10.5);
         CalcEmployee.printEmployeeBook(employee);
+
         System.out.println("Сотрудник отдела с минимальной ЗП:");
         System.out.println(CalcEmployee.searchEmployeeDepMinSalary(employee, 2));
+
         System.out.println("Сотрудник отдела с максимальной ЗП:");
         System.out.println(CalcEmployee.searchEmployeeDepMaxSalary(employee, 2));
+
+        System.out.print("Сумма ЗП по отделу: ");
+        System.out.printf("%.2f \n", CalcEmployee.calcSumDepSalaries(employee, 2));
+
+        System.out.print("Среднее ЗП по отделу: ");
+        System.out.printf("%.2f \n", CalcEmployee.calcAverageDepSalaries(employee, 2));
+
+        System.out.println("Индексация 20.5%");
+        CalcEmployee.indexationDepSalaries(employee,2,20.5);
+        CalcEmployee.printEmployeeBookMini(employee,2);
+        System.out.println();
+        System.out.println();
+        System.out.println("Больше введенного числа");
+        CalcEmployee.printEmpSalariesMore(employee,75_000);
+        System.out.println();
+        System.out.println("Меньше введенного числа");
+        CalcEmployee.printEmpSalariesLess(employee,100_000);
+
 
     }
 }

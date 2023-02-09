@@ -8,7 +8,7 @@ public class CalcEmployee {
         }
     }
 
-    public static double calculationSumSalaries(Employee[] employees) {
+    public static double calcSumSalaries(Employee[] employees) {
         double sum = 0;
         for (Employee i : employees) {
             sum = sum + i.getSalary();
@@ -40,8 +40,8 @@ public class CalcEmployee {
         return employeeMaxSalary;
     }
 
-    public static double calculationAverageSalaries(Employee[] employees) {
-        double average = calculationSumSalaries(employees) / employees.length;
+    public static double calcAverageSalaries(Employee[] employees) {
+        double average = calcSumSalaries(employees) / employees.length;
         return average;
     }
 
@@ -84,17 +84,58 @@ public class CalcEmployee {
         }
         return employeeMaxSalary;
     }
-    public static double calculationAverageDepSalaries(Employee[] employees, int dep) {
-        int count = 0;
+    public static double calcSumDepSalaries(Employee[] employees, int dep){
         double sum = 0;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDep() == dep) {
+            if (employees[i].getDep() == dep){
+                sum += employees[i].getSalary();
+            }
+        }
+        return sum;
+    }
+    public static double calcAverageDepSalaries(Employee[] employees, int dep) {
+        double sum = 0;
+        int count = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getDep() == dep){
                 sum += employees[i].getSalary();
                 count++;
             }
         }
         return sum/count;
     }
+    public static void indexationDepSalaries(Employee[] employees, int dep, double percent) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getDep() == dep) {
+                employees[i].setSalary(employees[i].getSalary() + employees[i].getSalary() * percent / 100);
+            }
+        }
+    }
+    //Перезагрузка метода
+    public static void printEmployeeBookMini(Employee[] employees,int dep){
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getDep() == dep) {
+                System.out.printf("\n %s %s %s ", employees[i].getLastName(), employees[i].getFirstName(), employees[i].getSurname());
+            }
+        }
+    }
 
-
+    public static void printEmpSalariesMore (Employee[] employees, double moreSalary){
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() >= moreSalary) {
+                System.out.printf("Работник id:%d: %s %s %s, зарплата: %.2f руб.\n"
+                        , employees[i].getId(), employees[i].getLastName(), employees[i].getFirstName()
+                        , employees[i].getSurname(), employees[i].getSalary());
+            }
+        }
+    }
+    public static void printEmpSalariesLess (Employee[] employees, double lessSalary){
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() < lessSalary) {
+                System.out.printf("Работник id:%d: %s %s %s, зарплата: %.2f руб.\n"
+                        , employees[i].getId(), employees[i].getLastName(), employees[i].getFirstName()
+                        , employees[i].getSurname(), employees[i].getSalary());
+            }
+        }
+    }
 }
