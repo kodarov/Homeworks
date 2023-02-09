@@ -4,6 +4,10 @@ public class App {
 
 
     public static void main(String[] args) {
+        EmployeeBook buhBook = new EmployeeBook(10);
+        Employee kodarovSS = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
+        buhBook.addEmployee(kodarovSS);
+
 /*        employee[0] = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
         employee[1] = new Employee("Ермилов", "Александр", "Владимирович", 2, 65000);
         employee[2] = new Employee("Измайлов", "Марат", "Дамирович", 2, 102000.33);

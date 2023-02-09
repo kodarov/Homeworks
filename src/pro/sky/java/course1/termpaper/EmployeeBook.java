@@ -1,13 +1,18 @@
 package pro.sky.java.course1.termpaper;
 
 public class EmployeeBook {
-    private static int count;
-    private final int id;
     private Employee[] employee;
+    private static int currentPages;
+    private final int pages;
 
-    public EmployeeBook(Employee[] employee, double salary, int dep) {
-        this.employee = employee;
-        this.id = ++count;
+    public EmployeeBook(int pages) {
+        this.pages=pages;
+        employee = new Employee[pages];
+    }
+
+    public void addEmployee(Employee employee){
+        this.employee[currentPages] = employee;
+        currentPages++;
     }
 
     public Employee[] getEmployee() {
@@ -18,24 +23,8 @@ public class EmployeeBook {
         this.employee = employee;
     }
 
-    public int getId() {
-        return id;
-    }
-
-
-    public void setSalary(double salary) {
-        if (salary < 0) {
-            this.salary = 0;
-        } else this.salary = salary;
-    }
-
-    public int getDep() {
-        return dep;
-    }
-
-    public void setDep(int dep) {
-        if (dep > 0 && dep < 6) this.dep = dep;
-        else this.dep = 0;
+    public int getPage() {
+        return pages;
     }
 
     public void printEmployeeBook(Employee[] employees) {
@@ -85,10 +74,6 @@ public class EmployeeBook {
         for (Employee i : employees) {
             System.out.printf("\n %s %s %s ", i.getLastName(), i.getFirstName(), i.getSurname());
         }
-    }
-    public int getCount()
-    {
-        return Employee.getCount();
     }
 
     public void indexationSalaries(Employee[] employees, double percent){
