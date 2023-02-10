@@ -91,7 +91,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("Работник id:%d: %s %s %s, отдел: %d, зарплата: %.2f руб."
+        return String.format("Работник id:%d %s %s %s, отдел: %d, зарплата: %.2f руб."
                 , id, lastName, firstName, surname, dep, salary);
     }
 }

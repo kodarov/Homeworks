@@ -34,43 +34,24 @@ public class App {
         System.out.printf("Работник с максимальная ЗП %s \n", buhBook.searchEmployeeMaxSalary());
         System.out.printf("Среднее ЗП %.2f \n", buhBook.calcAverageSalaries());
         buhBook.printEmployeeBookMini();
-/*
+        System.out.println("\n----- Всего сотрудников " + Employee.getCount());
+        System.out.println("\n----- Всего сотрудников в книге " + EmployeeBook.getCurrentPages());
+        //повышенная сложность
+        System.out.println("\n-----------Индексация 10,5%----------");
+        buhBook.indexationSalaries(10.5);
+        buhBook.printEmployeeBook();
+        System.out.printf("\nСотрудник отдела с минимальной ЗП: %s", buhBook.searchEmployeeDepMinSalary(2));
+        System.out.printf("\nСотрудник отдела с максимальной ЗП: %s", buhBook.searchEmployeeDepMaxSalary(2));
+        System.out.printf("\nСумма ЗП по отделу: %s", buhBook.calcSumDepSalaries(2));
+        System.out.printf("\nСреднее ЗП по отделу: %.2f", buhBook.calcAverageDepSalaries(2));
+        System.out.print("\n------------Индексация 20.5% ЗП отдела -------------");
+        buhBook.indexationDepSalaries(2,20.5);
+        buhBook.printEmployeeBook(2);
 
-
-
-
-
-
-        CalcEmployee.printEmployeeBookMini(employee);
-        System.out.println("\n Всего сотрудников " + CalcEmployee.getCount());
-        // повышенная сложность
-        System.out.println("Индексация 10,5%");
-        CalcEmployee.indexationSalaries(employee,10.5);
-        CalcEmployee.printEmployeeBook(employee);
-
-        System.out.println("Сотрудник отдела с минимальной ЗП:");
-        System.out.println(CalcEmployee.searchEmployeeDepMinSalary(employee, 2));
-
-        System.out.println("Сотрудник отдела с максимальной ЗП:");
-        System.out.println(CalcEmployee.searchEmployeeDepMaxSalary(employee, 2));
-
-        System.out.print("Сумма ЗП по отделу: ");
-        System.out.printf("%.2f \n", CalcEmployee.calcSumDepSalaries(employee, 2));
-
-        System.out.print("Среднее ЗП по отделу: ");
-        System.out.printf("%.2f \n", CalcEmployee.calcAverageDepSalaries(employee, 2));
-
-        System.out.println("Индексация 20.5%");
-        CalcEmployee.indexationDepSalaries(employee,2,20.5);
-        CalcEmployee.printEmployeeBookMini(employee,2);
         System.out.println();
-        System.out.println();
-        System.out.println("Больше введенного числа");
-        CalcEmployee.printEmpSalariesMore(employee,75_000);
-        System.out.println();
-        System.out.println("Меньше введенного числа");
-        CalcEmployee.printEmpSalariesLess(employee,100_000);*/
-
-
+        System.out.println("\n-------------Больше введенного числа-----------------");
+        buhBook.printEmpSalariesMore(75_000);
+        System.out.println("\n-------------Меньше введенного числа------------------");
+        buhBook.printEmpSalariesLess(100_000);
     }
 }
