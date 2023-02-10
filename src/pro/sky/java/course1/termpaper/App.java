@@ -26,12 +26,11 @@ public class App {
         buhBook.addEmployee(worker9);
         buhBook.addEmployee(worker10);
         buhBook.printEmployeeBook(buhBook.getEmployee());
-      //  for (int i = 1; i <= buhBook.getPage(); i++) {
-        //   buhBook.addEmployee((Employee));
-      //  }
+
+        buhBook.printEmployeeBook();
 /*
 
-        CalcEmployee.printEmployeeBook(employee);
+
         System.out.println(CalcEmployee.calcSumSalaries(employee));
         System.out.println(CalcEmployee.searchEmployeeMinSalary(employee));
         System.out.println(CalcEmployee.searchEmployeeMaxSalary(employee));
