@@ -179,9 +179,14 @@ public class EmployeeBook {
     }
 
     public void addEmployee(Employee employee) {
-        if (currentPages < pages) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null) {
+                employees[i] = employee;
+            }
+        }
+        /*if (currentPages < pages) {
             this.employees[currentPages] = employee;
             currentPages++;
-        } else throw new RuntimeException("Книга заполнена!");
+        } else throw new RuntimeException("Книга заполнена!");*/
     }
 }
