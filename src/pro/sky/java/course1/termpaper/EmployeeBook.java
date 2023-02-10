@@ -1,39 +1,37 @@
 package pro.sky.java.course1.termpaper;
 
 public class EmployeeBook {
-    private Employee[] employee;
+    private final Employee[] employees;
     private static int currentPages;
     private final int pages;
 
     public EmployeeBook(int pages) {
         this.pages=pages;
-        employee = new Employee[pages];
+        employees = new Employee[pages];
     }
 
-    public void addEmployee(Employee employee){
-        this.employee[currentPages] = employee;
-        currentPages++;
+    public void addEmployee(Employee employee) {
+        if (currentPages < pages) {
+            this.employees[currentPages] = employee;
+            currentPages++;
+        } else throw new RuntimeException("Книга заполнена!");
     }
 
     public Employee[] getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee[] employee) {
-        this.employee = employee;
+        return employees;
     }
 
     public int getPage() {
         return pages;
     }
 
-    public void printEmployeeBook(Employee[] employees) {
+    public void printEmployeeBook() {
         for (Employee employee : employees) {
             System.out.println(employee.toString());
         }
     }
 
-    public double calcSumSalaries(Employee[] employees) {
+    public double calcSumSalaries() {
         double sum = 0;
         for (Employee i : employees) {
             sum = sum + i.getSalary();
@@ -41,7 +39,7 @@ public class EmployeeBook {
         return sum;
     }
 
-    public Employee searchEmployeeMinSalary(Employee[] employees) {
+    public Employee searchEmployeeMinSalary() {
         Employee employeeMinSalary = null;
         double min = employees[0].getSalary();
         for (int i = 0; i < employees.length - 1; i++) {
@@ -53,7 +51,7 @@ public class EmployeeBook {
         return employeeMinSalary;
     }
 
-    public Employee searchEmployeeMaxSalary(Employee[] employees) {
+    public Employee searchEmployeeMaxSalary() {
         Employee employeeMaxSalary = null;
         double max = employees[0].getSalary();
         for (int i = 0; i < employees.length - 1; i++) {
@@ -65,12 +63,12 @@ public class EmployeeBook {
         return employeeMaxSalary;
     }
 
-    public double calcAverageSalaries(Employee[] employees) {
-        double average = calcSumSalaries(employees) / employees.length;
+    public double calcAverageSalaries() {
+        double average = calcSumSalaries() / employees.length;
         return average;
     }
 
-    public void printEmployeeBookMini(Employee[] employees) {
+    public void printEmployeeBookMini() {
         for (Employee i : employees) {
             System.out.printf("\n %s %s %s ", i.getLastName(), i.getFirstName(), i.getSurname());
         }

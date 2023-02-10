@@ -15,6 +15,8 @@ public class App {
         Employee worker8 = new Employee("Никель", "Дмитрий", "Степанович", 3, 85000);
         Employee worker9 = new Employee("Игнатьев", "Константин", "Ювельевич", 1, 155000);
         Employee worker10 = new Employee("Андрианов", "Дмитрий", "Иванович", 2, 80000);
+        Employee worker11 = new Employee("Андрианова", "Марина", "Ивановна", 2, 80000);
+        //buhBook.addEmployee(worker11); RuntimeException
         buhBook.addEmployee(worker1);
         buhBook.addEmployee(worker2);
         buhBook.addEmployee(worker3);
@@ -25,16 +27,20 @@ public class App {
         buhBook.addEmployee(worker8);
         buhBook.addEmployee(worker9);
         buhBook.addEmployee(worker10);
-        buhBook.printEmployeeBook(buhBook.getEmployee());
 
         buhBook.printEmployeeBook();
+        System.out.println("Сумма ЗП " + buhBook.calcSumSalaries());
+        System.out.printf("Работник с минимальной ЗП %s \n", buhBook.searchEmployeeMinSalary());
+        System.out.printf("Работник с максимальная ЗП %s \n", buhBook.searchEmployeeMaxSalary());
+        System.out.printf("Среднее ЗП %.2f \n", buhBook.calcAverageSalaries());
+        buhBook.printEmployeeBookMini();
 /*
 
 
-        System.out.println(CalcEmployee.calcSumSalaries(employee));
-        System.out.println(CalcEmployee.searchEmployeeMinSalary(employee));
-        System.out.println(CalcEmployee.searchEmployeeMaxSalary(employee));
-        System.out.printf("%.2f", CalcEmployee.calcAverageSalaries(employee));
+
+
+
+
         CalcEmployee.printEmployeeBookMini(employee);
         System.out.println("\n Всего сотрудников " + CalcEmployee.getCount());
         // повышенная сложность
