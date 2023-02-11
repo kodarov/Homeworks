@@ -140,10 +140,10 @@ public class EmployeeBook {
     public Employee searchEmployeeDepMaxSalary(int dep) {
         Employee employeeMaxSalary = null;
         double max = Double.MIN_VALUE;
-        for (int i = 0; i < employees.length - 1; i++) {
-            if (employees[i].getDep() == dep && employees[i].getSalary() > max) {
-                max = employees[i].getSalary();
-                employeeMaxSalary = employees[i];
+        for (Employee employee:employees) {
+            if (employee != null &&employee.getDep() == dep && employee.getSalary() > max) {
+                max = employee.getSalary();
+                employeeMaxSalary = employee;
             }
         }
         return employeeMaxSalary;
@@ -151,9 +151,9 @@ public class EmployeeBook {
 
     public double calcSumDepSalaries(int dep) {
         double sum = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDep() == dep) {
-                sum += employees[i].getSalary();
+        for (Employee employee:employees) {
+            if (employee != null && employee.getDep() == dep) {
+                sum += employee.getSalary();
             }
         }
         return sum;
@@ -162,9 +162,9 @@ public class EmployeeBook {
     public double calcAverageDepSalaries(int dep) {
         double sum = 0;
         int count = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDep() == dep) {
-                sum += employees[i].getSalary();
+        for (Employee employee:employees) {
+            if (employee != null&& employee.getDep() == dep) {
+                sum += employee.getSalary();
                 count++;
             }
         }
@@ -174,9 +174,9 @@ public class EmployeeBook {
     }
 
     public void indexationDepSalaries(int dep, double percent) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDep() == dep) {
-                employees[i].setSalary(employees[i].getSalary() + employees[i].getSalary() * percent / 100);
+        for (Employee employee:employees) {
+            if (employee!=null&& employee.getDep() == dep) {
+                employee.setSalary(employee.getSalary() + employee.getSalary() * percent / 100);
             }
         }
     }
@@ -193,10 +193,8 @@ public class EmployeeBook {
     }
 
     public void removeEmployee(String empSearch) {
-        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1).toLowerCase();
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getLastName().equals(empSearch) ||
-                    employees[i].getFirstName().equals(empSearch) || employees[i].getSurname().equals(empSearch)) {
+            if (employees[i] != null && employees[i].getFIO().equals(empSearch)) {
                 System.out.printf("УДАЛЕН %s\n", employees[i]);
                 employees[i] = null;
                 currentWorkers--;
@@ -214,14 +212,13 @@ public class EmployeeBook {
     }
 
     public void removeEmployee(String empSearch, int id) {
-        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1).toLowerCase();
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getLastName().equals(empSearch) ||
-                    employees[i].getFirstName().equals(empSearch) ||
-                    employees[i].getSurname().equals(empSearch) && id == employees[i].getId()) {
+            if (employees[i] != null) {
+            if (id == employees[i].getId() && employees[i].getFIO().equals(empSearch)) {
                 System.out.printf("УДАЛЕН %s\n", employees[i]);
                 employees[i] = null;
                 currentWorkers--;
+            }
             }
         }
     }

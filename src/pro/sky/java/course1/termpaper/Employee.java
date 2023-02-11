@@ -52,6 +52,9 @@ public class Employee {
     public String getSurname() {
         return surname;
     }
+    public String getFIO() {
+        return lastName+" "+firstName+" " +surname;
+    }
 
     public double getSalary() {
         return salary;

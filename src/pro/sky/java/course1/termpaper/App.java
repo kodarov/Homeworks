@@ -4,7 +4,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        EmployeeBook buhBook = new EmployeeBook(10);
+        EmployeeBook buhBook = new EmployeeBook(0);
         Employee worker1 = new Employee("кодаров", "салават", "саламатович", -32, 55000.45);
         Employee worker2 = new Employee("Ермилов", "Александр", "Владимирович", 2, 65000);
         Employee worker3 = new Employee("Измайлов", "Марат", "Дамирович", 2, 102000.33);
@@ -55,8 +55,9 @@ public class App {
 
         // сложная часть
         System.out.println("\n-------------УДАЛЕНИЕ------------------");
-        buhBook.removeEmployee("КОДАРОВ");
-        buhBook.removeEmployee("миронов",1);
+        buhBook.removeEmployee("Кодаров Салават Саламатович");
+        buhBook.removeEmployees(6);
+        buhBook.removeEmployee("Миронов Андрей Александрович",4);
         System.out.println("----- Всего сотрудников в книге " + EmployeeBook.getCurrentPages());
         buhBook.printEmployeeBook();
     }
