@@ -77,8 +77,10 @@ public class EmployeeBook {
 
     public double calcSumSalaries() {
         double sum = 0;
-        for (int i = 0; i < employees.length; i++) {
-            sum = sum + employees[i].getSalary();
+        for (Employee employee : employees) {
+            if (employee != null) {
+                sum = sum + employee.getSalary();
+            }
         }
         return sum;
     }
@@ -86,10 +88,10 @@ public class EmployeeBook {
     public Employee searchEmployeeMinSalary() {
         Employee employeeMinSalary = null;
         double min = Double.MAX_VALUE;
-        for (int i = 0; i < employees.length - 1; i++) {
-            if (employees[i].getSalary() < min) {
-                min = employees[i].getSalary();
-                employeeMinSalary = employees[i];
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() < min) {
+                min = employee.getSalary();
+                employeeMinSalary = employee;
             }
         }
         return employeeMinSalary;
@@ -98,33 +100,38 @@ public class EmployeeBook {
     public Employee searchEmployeeMaxSalary() {
         Employee employeeMaxSalary = null;
         double max = Double.MIN_VALUE;
-        for (int i = 0; i < employees.length - 1; i++) {
-            if (employees[i].getSalary() > max) {
-                max = employees[i].getSalary();
-                employeeMaxSalary = employees[i];
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() > max) {
+                max = employee.getSalary();
+                employeeMaxSalary = employee;
             }
         }
         return employeeMaxSalary;
     }
 
     public double calcAverageSalaries() {
-        double average = calcSumSalaries() / employees.length;
-        return average;
+        if (employees.length != 0) {
+            double average = calcSumSalaries() / employees.length;
+            return average;
+        }
+        return 0;
     }
 
     public void indexationSalaries(double percent) {
-        for (Employee i : employees) {
-            i.setSalary(i.getSalary() + i.getSalary() * percent / 100);
+        for (Employee employee : employees) {
+            if (employee != null) {
+                employee.setSalary(employee.getSalary() + employee.getSalary() * percent / 100);
+            }
         }
     }
 
     public Employee searchEmployeeDepMinSalary(int dep) {
         Employee employeeMinSalary = null;
         double min = Double.MAX_VALUE;
-        for (int i = 0; i < employees.length - 1; i++) {
-            if (employees[i].getDep() == dep && employees[i].getSalary() < min) {
-                min = employees[i].getSalary();
-                employeeMinSalary = employees[i];
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDep() == dep && employee.getSalary() < min) {
+                min = employee.getSalary();
+                employeeMinSalary = employee;
             }
         }
         return employeeMinSalary;
@@ -161,8 +168,8 @@ public class EmployeeBook {
                 count++;
             }
         }
-        if (count != 0){
-        return sum / count;
+        if (count != 0) {
+            return sum / count;
         } else return 0;
     }
 
@@ -186,9 +193,9 @@ public class EmployeeBook {
     }
 
     public void removeEmployee(String empSearch) {
-        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1);
+        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1).toLowerCase();
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getLastName().equals(empSearch) ||
+            if (employees[i] != null && employees[i].getLastName().equals(empSearch) ||
                     employees[i].getFirstName().equals(empSearch) || employees[i].getSurname().equals(empSearch)) {
                 System.out.printf("УДАЛЕН %s\n", employees[i]);
                 employees[i] = null;
@@ -196,10 +203,20 @@ public class EmployeeBook {
             }
         }
     }
-    public void removeEmployee(String empSearch, int id) {
-        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1);
+
+    public void removeEmployees(int id) {
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getLastName().equals(empSearch) ||
+            if (employees[i] != null && id == employees[i].getId()) {
+                System.out.printf("УДАЛЕН %s\n", employees[i]);
+                employees[i] = null;
+            }
+        }
+    }
+
+    public void removeEmployee(String empSearch, int id) {
+        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1).toLowerCase();
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getLastName().equals(empSearch) ||
                     employees[i].getFirstName().equals(empSearch) ||
                     employees[i].getSurname().equals(empSearch) && id == employees[i].getId()) {
                 System.out.printf("УДАЛЕН %s\n", employees[i]);
@@ -208,14 +225,6 @@ public class EmployeeBook {
             }
         }
     }
-    public void removeEmployees(int id){
-        for (int i = 0; i < employees.length; i++) {
-           if (id == employees[i].getId()) {
-               employees[i] = null;
-           }
-        }
-    }
-
 
 /*    public void addEmployee(Employee employee) {
         if (currentPages < pages) {

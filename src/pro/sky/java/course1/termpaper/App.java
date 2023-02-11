@@ -54,7 +54,10 @@ public class App {
         buhBook.printEmpSalariesLess(100_000);
 
         // сложная часть
-        buhBook.removeEmployee("андрианов");
+        System.out.println("\n-------------УДАЛЕНИЕ------------------");
+        buhBook.removeEmployee("КОДАРОВ");
+        buhBook.removeEmployee("миронов",1);
+        System.out.println("----- Всего сотрудников в книге " + EmployeeBook.getCurrentPages());
         buhBook.printEmployeeBook();
     }
 }
