@@ -31,11 +31,11 @@ public class EmployeeBook {
     }
 
     public void printEmployeeBook(int dep) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDep() == dep) {
+        for (Employee employee : employees) {
+            if (employee.getDep() == dep) {
                 System.out.printf("\nРаботник id:%d %s %s %s, зарплата: %.2f руб. "
-                        , employees[i].getId(), employees[i].getLastName(), employees[i].getFirstName(),
-                        employees[i].getSurname(), employees[i].getSalary());
+                        , employee.getId(), employee.getLastName(), employee.getFirstName(),
+                        employee.getSurname(), employee.getSalary());
             }
         }
     }
@@ -47,29 +47,29 @@ public class EmployeeBook {
     }
 
     public void printEmployeeBookMini(int dep) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getDep() == dep) {
-                System.out.printf("\n %s %s %s ", employees[i].getLastName(), employees[i].getFirstName(), employees[i].getSurname());
+        for (Employee employee:employees) {
+            if (employee.getDep() == dep) {
+                System.out.printf("\n %s %s %s ", employee.getLastName(), employee.getFirstName(), employee.getSurname());
             }
         }
     }
 
     public void printEmpSalariesMore(double moreSalary) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() >= moreSalary) {
+        for (Employee employee:employees) {
+            if (employee.getSalary() >= moreSalary) {
                 System.out.printf("Работник id:%d: %s %s %s, зарплата: %.2f руб.\n"
-                        , employees[i].getId(), employees[i].getLastName(), employees[i].getFirstName()
-                        , employees[i].getSurname(), employees[i].getSalary());
+                        , employee.getId(), employee.getLastName(), employee.getFirstName()
+                        , employee.getSurname(), employee.getSalary());
             }
         }
     }
 
     public void printEmpSalariesLess(double lessSalary) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() < lessSalary) {
+        for (Employee employee:employees) {
+            if (employee.getSalary() < lessSalary) {
                 System.out.printf("Работник id:%d: %s %s %s, зарплата: %.2f руб.\n"
-                        , employees[i].getId(), employees[i].getLastName(), employees[i].getFirstName()
-                        , employees[i].getSurname(), employees[i].getSalary());
+                        , employee.getId(), employee.getLastName(), employee.getFirstName()
+                        , employee.getSurname(), employee.getSalary());
             }
         }
     }
@@ -113,6 +113,7 @@ public class EmployeeBook {
             return calcSumSalaries() / employees.length;
         }
         return 0;
+
     }
 
     public void indexationSalaries(double percent) {
