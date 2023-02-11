@@ -64,5 +64,11 @@ public class App {
         buhBook.addEmployee(worker11); // повторно добавляем в книгу
         System.out.println("----- Всего сотрудников в книге " + EmployeeBook.getCurrentPages());
         buhBook.printEmployeeBook();
+        System.out.println("\n-------------ИЗМЕНЕНИЕ------------------");
+        buhBook.editSalary("Волков Валерий Валерьевич",100_000);
+        buhBook.editDepartament("Волков Валерий Валерьевич", 1);
+        System.out.println("\n-------------ОТДЕЛЫ------------------");
+        buhBook.printDepartament();
+
     }
 }
