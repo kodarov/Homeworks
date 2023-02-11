@@ -2,22 +2,14 @@ package pro.sky.java.course1.termpaper;
 
 public class EmployeeBook {
     private final Employee[] employees;
-    private Employee emp;
-    private static int currentPages;
+    //private Employee emp;
+    private static int currentWorkers;
     private final int pages;
 
     public EmployeeBook(int pages) {
         this.pages = pages;
         employees = new Employee[pages];
     }
-
- /*   public void addEmployee(Employee employee) {
-        if (currentPages < pages) {
-            this.employees[currentPages] = employee;
-            currentPages++;
-        } else throw new RuntimeException("Книга заполнена!");
-    }*/
-
 
     public Employee[] getEmployee() {
         return employees;
@@ -28,12 +20,15 @@ public class EmployeeBook {
     }
 
     public static int getCurrentPages() {
-        return currentPages;
+        return currentWorkers;
     }
 
     public void printEmployeeBook() {
         for (Employee employee : employees) {
-            System.out.println(employee.toString());
+            if (employee != null) {
+                System.out.println(employee);
+            }
+            continue;
         }
     }
 
@@ -83,8 +78,8 @@ public class EmployeeBook {
 
     public double calcSumSalaries() {
         double sum = 0;
-        for (Employee i : employees) {
-            sum = sum + i.getSalary();
+        for (int i = 0; i < employees.length; i++) {
+            sum = sum + employees[i].getSalary();
         }
         return sum;
     }
@@ -180,13 +175,50 @@ public class EmployeeBook {
 
     public void addEmployee(Employee employee) {
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
+            if (employees[i] == null) {
                 employees[i] = employee;
+                currentWorkers++;
+                break;
             }
         }
-        /*if (currentPages < pages) {
+    }
+
+    public void removeEmployee(String empSearch) {
+        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1);
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getLastName().equals(empSearch) ||
+                    employees[i].getFirstName().equals(empSearch) || employees[i].getSurname().equals(empSearch)) {
+                System.out.printf("УДАЛЕН %s\n", employees[i]);
+                employees[i] = null;
+                currentWorkers--;
+            }
+        }
+    }
+    public void removeEmployee(String empSearch, int id) {
+        empSearch = empSearch.substring(0, 1).toUpperCase() + empSearch.substring(1);
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getLastName().equals(empSearch) ||
+                    employees[i].getFirstName().equals(empSearch) ||
+                    employees[i].getSurname().equals(empSearch) && id == employees[i].getId()) {
+                System.out.printf("УДАЛЕН %s\n", employees[i]);
+                employees[i] = null;
+                currentWorkers--;
+            }
+        }
+    }
+    public void removeEmployees(int id){
+        for (int i = 0; i < employees.length; i++) {
+           if (id == employees[i].getId()) {
+               employees[i] = null;
+           }
+        }
+    }
+
+
+/*    public void addEmployee(Employee employee) {
+        if (currentPages < pages) {
             this.employees[currentPages] = employee;
             currentPages++;
-        } else throw new RuntimeException("Книга заполнена!");*/
-    }
+        } else throw new RuntimeException("Книга заполнена!");
+    }*/
 }

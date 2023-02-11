@@ -15,8 +15,7 @@ public class App {
         Employee worker8 = new Employee("Никель", "Дмитрий", "Степанович", 3, 85000);
         Employee worker9 = new Employee("Игнатьев", "Константин", "Ювельевич", 1, 155000);
         Employee worker10 = new Employee("Андрианов", "Дмитрий", "Иванович", 2, 80000);
-        Employee worker11 = new Employee("Андрианова", "Марина", "Ивановна", 2, 80000);
-        //buhBook.addEmployee(worker11); RuntimeException
+        //Employee worker11 = new Employee("Андрианова", "Марина", "Ивановна", 2, 80000);
         buhBook.addEmployee(worker1);
         buhBook.addEmployee(worker2);
         buhBook.addEmployee(worker3);
@@ -27,6 +26,7 @@ public class App {
         buhBook.addEmployee(worker8);
         buhBook.addEmployee(worker9);
         buhBook.addEmployee(worker10);
+        //buhBook.addEmployee(worker11);
 
         buhBook.printEmployeeBook();
         System.out.println("Сумма ЗП " + buhBook.calcSumSalaries());
@@ -53,5 +53,8 @@ public class App {
         buhBook.printEmpSalariesMore(75_000);
         System.out.println("\n-------------Меньше введенного числа------------------");
         buhBook.printEmpSalariesLess(100_000);
+        // сложная часть
+        buhBook.removeEmployee("андрианов");
+        buhBook.printEmployeeBook();
     }
 }
