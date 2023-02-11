@@ -1,8 +1,7 @@
 package pro.sky.java.course1.termpaper;
 
 public class EmployeeBook {
-    private final Employee[] employees;
-    //private Employee emp;
+    private static Employee[] employees;
     private static int currentWorkers;
     private final int pages;
 
