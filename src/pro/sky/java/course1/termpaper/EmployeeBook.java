@@ -85,7 +85,7 @@ public class EmployeeBook {
 
     public Employee searchEmployeeMinSalary() {
         Employee employeeMinSalary = null;
-        double min = employees[0].getSalary();
+        double min = Double.MAX_VALUE;
         for (int i = 0; i < employees.length - 1; i++) {
             if (employees[i].getSalary() < min) {
                 min = employees[i].getSalary();
@@ -97,7 +97,7 @@ public class EmployeeBook {
 
     public Employee searchEmployeeMaxSalary() {
         Employee employeeMaxSalary = null;
-        double max = employees[0].getSalary();
+        double max = Double.MIN_VALUE;
         for (int i = 0; i < employees.length - 1; i++) {
             if (employees[i].getSalary() > max) {
                 max = employees[i].getSalary();
@@ -161,7 +161,9 @@ public class EmployeeBook {
                 count++;
             }
         }
+        if (count != 0){
         return sum / count;
+        } else return 0;
     }
 
     public void indexationDepSalaries(int dep, double percent) {
@@ -172,6 +174,7 @@ public class EmployeeBook {
         }
     }
 
+    // сложный уровень
     public void addEmployee(Employee employee) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
