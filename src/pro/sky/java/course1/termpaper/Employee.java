@@ -37,7 +37,6 @@ public class Employee {
     public Employee(String lastName, String firstName, String surname) {
         this(lastName, firstName, surname, 0, 0L);
     }
-
     public static int getCount() {
         return count;
     }
@@ -53,6 +52,9 @@ public class Employee {
     public String getSurname() {
         return surname;
     }
+    public String getFIO() {
+        return lastName+" "+firstName+" " +surname;
+    }
 
     public double getSalary() {
         return salary;
@@ -60,6 +62,11 @@ public class Employee {
 
     public int getDep() {
         return dep;
+    }
+
+    public void setDep(int dep) {
+        if (dep > 0 && dep < 6) this.dep = dep;
+        else this.dep = 0;
     }
 
     public int getId() {
@@ -70,11 +77,6 @@ public class Employee {
         if (salary < 0) {
             this.salary = 0;
         } else this.salary = salary;
-    }
-
-    public void setDep(int dep) {
-        if (dep > 0 && dep < 6) this.dep = dep;
-        else this.dep = 0;
     }
 
     @Override
@@ -92,7 +94,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("Работник id:%d: %s %s %s, отдел: %d, зарплата: %.2f руб."
+        return String.format("Работник id:%d %s %s %s, отдел: %d, зарплата: %.2f руб."
                 , id, lastName, firstName, surname, dep, salary);
     }
 }
