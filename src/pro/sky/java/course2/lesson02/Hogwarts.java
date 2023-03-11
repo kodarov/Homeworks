@@ -1,5 +1,7 @@
 package pro.sky.java.course2.lesson02;
 
+import java.util.Objects;
+
 public class Hogwarts {
     private String name;
     private int magicPower;
@@ -33,5 +35,27 @@ public class Hogwarts {
 
     public void setTransgressPower(int transgressPower) {
         this.transgressPower = transgressPower;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hogwarts hogwarts = (Hogwarts) o;
+        return magicPower == hogwarts.magicPower && transgressPower == hogwarts.transgressPower && Objects.equals(name, hogwarts.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, magicPower, transgressPower);
+    }
+
+    @Override
+    public String toString() {
+        return "Hogwarts{" +
+                "name='" + name + '\'' +
+                ", magicPower=" + magicPower +
+                ", transgressPower=" + transgressPower +
+                '}';
     }
 }
